@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "518842412519",
+    "project_id": "meal-planning-app-getx",
+    "storage_bucket": "meal-planning-app-getx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518842412519:android:a4f840444d2e0012202142",
+        "android_client_info": {
+          "package_name": "com.krg.meal_planning_app_getx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518842412519-hm7p67ftt0b07bgjbddp3gckb5p4u21i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh4EyaCBwP83rvgH7Y_V_WE_FFiD8oVR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518842412519-hm7p67ftt0b07bgjbddp3gckb5p4u21i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
