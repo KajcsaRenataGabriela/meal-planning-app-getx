@@ -5,7 +5,7 @@ import '../screens/home_page.dart';
 import '../screens/login_page.dart';
 import '../utils/constants.dart';
 
-class AuthController extends GetxController{
+class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
   late Rx<User?> firebaseUser;
@@ -25,8 +25,7 @@ class AuthController extends GetxController{
 
   Future<void> register(String email, String password) async {
     try {
-      await firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       Get.to(const HomePage());
     } catch (firebaseAuthException) {
       //
@@ -35,8 +34,7 @@ class AuthController extends GetxController{
 
   Future<void> login(String email, String password) async {
     try {
-      await firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+      await firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       Get.to(const HomePage());
     } catch (firebaseAuthException) {
       //
@@ -51,5 +49,4 @@ class AuthController extends GetxController{
       //
     }
   }
-
 }
