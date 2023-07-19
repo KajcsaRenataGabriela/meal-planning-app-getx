@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../screens/home_page.dart';
+import '../screens/login_page.dart';
 import '../utils/constants.dart';
 
 class AuthController extends GetxController{
@@ -25,6 +27,7 @@ class AuthController extends GetxController{
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
+      Get.to(const HomePage());
     } catch (firebaseAuthException) {
       //
     }
@@ -34,6 +37,16 @@ class AuthController extends GetxController{
     try {
       await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
+      Get.to(const HomePage());
+    } catch (firebaseAuthException) {
+      //
+    }
+  }
+
+  Future<void> logout() async {
+    try {
+      await firebaseAuth.signOut();
+      Get.to(const SignInPage());
     } catch (firebaseAuthException) {
       //
     }

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import 'app/controllers/auth_controller.dart';
 import 'app/screens/home_page.dart';
-import 'app/screens/sign_up_page.dart';
+import 'app/screens/login_page.dart';
 import 'app/utils/constants.dart';
 
 void main() async {
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Obx(() {
-        return authController.isLoggedIn.value ? const HomePage() : const SignUp();
+        return authController.isLoggedIn.value ? const HomePage() : const SignInPage();
       }),
     );
   }
