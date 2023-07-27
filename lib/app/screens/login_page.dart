@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/auth_controller.dart';
+import 'sign_up_page.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class LogInPage extends StatefulWidget {
+  const LogInPage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<LogInPage> createState() => _LogInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _LogInPageState extends State<LogInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final AuthController _authController = Get.put(AuthController());
@@ -29,14 +30,12 @@ class _SignInPageState extends State<SignInPage> {
         secondaryBegin: Alignment.bottomLeft,
         secondaryEnd: Alignment.topRight,
         primaryColors: <Color>[
-          Colors.pink.shade200,
-          Colors.pinkAccent.shade100,
-          Colors.pinkAccent.withOpacity(0.1),
+          Colors.pink.shade100,
+          Colors.pinkAccent.shade100.withOpacity(0.1),
         ],
         secondaryColors: <Color>[
-          Colors.pinkAccent.withOpacity(0.1),
+          Colors.pinkAccent.shade100.withOpacity(0.1),
           Colors.purpleAccent.shade100,
-          Colors.purple.shade200,
         ],
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -72,13 +71,46 @@ class _SignInPageState extends State<SignInPage> {
                           TextField(
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
-                            decoration: const InputDecoration(hintText: 'Email'),
+                            style: const TextStyle(color: Colors.purpleAccent, fontWeight: FontWeight.w900),
+                            decoration: InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(fontSize: 14, color: Colors.purpleAccent.shade100, fontWeight: FontWeight.w400),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.shade300,
+                                ),
+                              ),
+                              prefixIcon: const Icon(Icons.email_rounded, color: Colors.purpleAccent,),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: Colors.purpleAccent,
+                                  )),
+                            ),
                           ),
+                          const SizedBox(height: 16),
                           TextField(
                             controller: _passwordController,
-                            keyboardType: TextInputType.visiblePassword,
                             obscureText: true,
-                            decoration: const InputDecoration(hintText: 'Password'),
+                            keyboardType: TextInputType.visiblePassword,
+                            style: const TextStyle(color: Colors.purpleAccent, fontWeight: FontWeight.w900),
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              labelStyle: TextStyle(fontSize: 14, color: Colors.purpleAccent.shade100, fontWeight: FontWeight.w400),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.shade300,
+                                ),
+                              ),
+                              prefixIcon: const Icon(Icons.password_outlined, color: Colors.purpleAccent,),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                    color: Colors.purpleAccent,
+                                  )),
+                            ),
                           ),
                         ],
                       ),
@@ -109,7 +141,7 @@ class _SignInPageState extends State<SignInPage> {
                           size: 24.0,
                         ),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/create');
+                          Get.to(const SignUpPage());
                         },
                         heroTag: 'btn2',
                       ),

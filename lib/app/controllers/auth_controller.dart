@@ -44,7 +44,7 @@ class AuthController extends GetxController {
   Future<void> logout() async {
     try {
       await firebaseAuth.signOut();
-      Get.to(const SignInPage());
+      Get.to(const LogInPage());
     } catch (firebaseAuthException) {
       //
     }

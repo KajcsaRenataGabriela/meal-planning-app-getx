@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
       home: Obx(() {
-        return authController.isLoggedIn.value ? const HomePage() : const SignInPage();
+        return authController.isLoggedIn.value ? const HomePage() : const LogInPage();
       }),
     );
   }

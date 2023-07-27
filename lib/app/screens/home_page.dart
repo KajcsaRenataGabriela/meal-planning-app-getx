@@ -23,6 +23,27 @@ class _HomePageState extends State<HomePage> {
             },
             child: const Text('Logout')),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.severe_cold),
+            label: 'Fridge',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Shopping',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.apple),
+            label: 'Recipes',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.note_alt),
+            label: 'Weekly plan',
+          ),
+        ],
+      ),
     );
   }
 }

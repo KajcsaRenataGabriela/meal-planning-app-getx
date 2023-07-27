@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+import '../controllers/auth_controller.dart';
+import 'login_page.dart';
+
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final AuthController _authController = Get.put(AuthController());
+
+  String get email => _emailController.text.trim();
+
+  String get password => _passwordController.text.trim();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +45,7 @@ class SignUp extends StatelessWidget {
                     height: 6,
                   ),
                   Text(
-                    'Sign in to continue!',
+                    'Sign up to continue!',
                     style: TextStyle(fontSize: 20, color: Colors.grey.shade400),
                   ),
                 ],
@@ -36,6 +53,7 @@ class SignUp extends StatelessWidget {
               Column(
                 children: <Widget>[
                   TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       labelText: 'Email ID',
                       labelStyle: TextStyle(fontSize: 14, color: Colors.grey.shade400),
@@ -54,6 +72,7 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   TextField(
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(fontSize: 14, color: Colors.grey.shade400),
@@ -102,10 +121,15 @@ class SignUp extends StatelessWidget {
                         child: Container(
                           alignment: Alignment.center,
                           constraints: const BoxConstraints(minHeight: 50),
-                          child: const Text(
-                            'Login',
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
+                          child: TextButton(
+                            onPressed: () {
+                              _authController.register(email, password);
+                            },
+                            child: const Text(
+                              'Create your account',
+                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       ),
@@ -120,17 +144,15 @@ class SignUp extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text(
-                      "I'm a new user.",
+                      'I already have an account. ',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) {
-                          return const SignUp();
-                        }));
+                        Get.to(const LogInPage());
                       },
                       child: const Text(
-                        'Sign up',
+                        'Log in',
                         style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                       ),
                     )
